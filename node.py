@@ -22,7 +22,7 @@ def updateTextWidget(node, widget, text):
     PromptServer.instance.send_sync("exectails.text_updater.node_processed", {"node": node, "widget": widget, "text": text})
 
 
-class TokenCountNode:
+class ETTokenCountNode:
     """
     A node that counts the number of tokens in a given text. Passes the
     text through and returns the token count.
@@ -61,7 +61,7 @@ class TokenCountNode:
         return {"ui": {"tokens": tokenCountStr}, "result": (text, tokenCountStr,)}
 
 
-class TextBoxNode:
+class ETTextBoxNode:
     """
     A multi-line string primitive node.
     """
@@ -84,7 +84,7 @@ class TextBoxNode:
         return (text,)
 
 
-class ShowDataNode:
+class ETShowDataNode:
     """
     A node that takes any value and displays it as a string.
     """
@@ -134,7 +134,7 @@ class ShowDataNode:
         return result
 
 
-class InspectTextNode:
+class ETInspectTextNode:
     """
     A node that takes any value, displays it as a string, and passes
     through on as output.
@@ -165,7 +165,7 @@ class InspectTextNode:
 
         updateTextWidget(unique_id, "display", displayText)
         return {"ui": {"display": displayText}, "result": (text,)}
-    
+
     def render(self, input):
         if not isinstance(input, list):
             return input
@@ -187,15 +187,15 @@ class InspectTextNode:
 
 
 NODE_CLASS_MAPPINGS = {
-    "TokenCountNode": TokenCountNode,
-    "TextBoxNode": TextBoxNode,
-    "ShowDataNode": ShowDataNode,
-    "InspectTextNode": InspectTextNode,
+    "ETTokenCountNode": ETTokenCountNode,
+    "ETTextBoxNode": ETTextBoxNode,
+    "ETShowDataNode": ETShowDataNode,
+    "ETInspectTextNode": ETInspectTextNode,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "TokenCountNode": "Token Counter",
-    "TextBoxNode": "Text Box",
-    "ShowDataNode": "Show Data",
-    "InspectTextNode": "Inspect Text",
+    "ETTokenCountNode": "Token Counter",
+    "ETTextBoxNode": "Text Box",
+    "ETShowDataNode": "Show Data",
+    "ETInspectTextNode": "Inspect Text",
 }
