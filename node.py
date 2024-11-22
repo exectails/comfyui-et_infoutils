@@ -43,6 +43,7 @@ class ETTokenCountNode:
 
     RETURN_TYPES = ("STRING", "INT",)
     RETURN_NAMES = ("text", "count")
+    OUTPUT_NODE = True
 
     CATEGORY = CATEGORY_NAME
     FUNCTION = "process"
@@ -82,6 +83,54 @@ class ETTextBoxNode:
 
     def process(self, text: str) -> tuple:
         return (text,)
+
+
+class ETStringBoxNode:
+    """
+    A string primitive node. Useful for any type inputs where the official
+    primitive nodes don't work as expected.
+    """
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "value": ("STRING", {"default": ""}),
+            },
+        }
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("text",)
+
+    CATEGORY = CATEGORY_NAME
+    FUNCTION = "process"
+
+    def process(self, value) -> tuple:
+        return (value,)
+
+
+class ETIntBoxNode:
+    """
+    An integer primitive node. Useful for any type inputs where the official
+    primitive nodes don't work as expected.
+    """
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "value": ("INT", {"default": 0}),
+            },
+        }
+
+    RETURN_TYPES = ("INT",)
+    RETURN_NAMES = ("text",)
+
+    CATEGORY = CATEGORY_NAME
+    FUNCTION = "process"
+
+    def process(self, value: int) -> tuple:
+        return (value,)
 
 
 class ETShowDataNode:
@@ -189,6 +238,8 @@ class ETInspectTextNode:
 NODE_CLASS_MAPPINGS = {
     "ETTokenCountNode": ETTokenCountNode,
     "ETTextBoxNode": ETTextBoxNode,
+    "ETStringBoxNode": ETStringBoxNode,
+    "ETIntBoxNode": ETIntBoxNode,
     "ETShowDataNode": ETShowDataNode,
     "ETInspectTextNode": ETInspectTextNode,
 }
@@ -196,6 +247,8 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "ETTokenCountNode": "Token Counter",
     "ETTextBoxNode": "Text Box",
+    "ETStringBoxNode": "String Box",
+    "ETIntBoxNode": "Int Box",
     "ETShowDataNode": "Show Data",
     "ETInspectTextNode": "Inspect Text",
 }
