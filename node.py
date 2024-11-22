@@ -205,6 +205,7 @@ class ETInspectTextNode:
     RETURN_NAMES = ("text",)
     INPUT_IS_LIST = (True,)
     OUTPUT_IS_LIST = (True,)
+    OUTPUT_NODE = True
 
     CATEGORY = CATEGORY_NAME
     FUNCTION = "process"
