@@ -14,7 +14,7 @@ class ETTextBoxNode:
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("text",)
 
-    CATEGORY = "exectails"
+    CATEGORY = "exectails/Info"
     FUNCTION = "process"
 
     def process(self, text: str) -> tuple:
@@ -38,7 +38,7 @@ class ETStringBoxNode:
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("text",)
 
-    CATEGORY = "exectails"
+    CATEGORY = "exectails/Info"
     FUNCTION = "process"
 
     def process(self, value) -> tuple:
@@ -62,7 +62,7 @@ class ETIntBoxNode:
     RETURN_TYPES = ("INT",)
     RETURN_NAMES = ("text",)
 
-    CATEGORY = "exectails"
+    CATEGORY = "exectails/Info"
     FUNCTION = "process"
 
     def process(self, value: int) -> tuple:

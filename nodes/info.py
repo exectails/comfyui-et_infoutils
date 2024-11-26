@@ -45,7 +45,7 @@ class ETTokenCountNode:
     INPUT_IS_LIST = True
     OUTPUT_NODE = True
 
-    CATEGORY = "exectails"
+    CATEGORY = "exectails/Info"
     FUNCTION = "process"
 
     def process(self, text, clip, tokens, unique_id):
@@ -105,7 +105,7 @@ class ETShowDataNode:
     INPUT_IS_LIST = (True,)
     OUTPUT_NODE = True
 
-    CATEGORY = "exectails"
+    CATEGORY = "exectails/Info"
     FUNCTION = "process"
 
     def process(self, input, data, unique_id):
@@ -158,7 +158,7 @@ class ETInspectTextNode:
     OUTPUT_IS_LIST = (True,)
     OUTPUT_NODE = True
 
-    CATEGORY = "exectails"
+    CATEGORY = "exectails/Info"
     FUNCTION = "process"
 
     def process(self, text, display, unique_id):
