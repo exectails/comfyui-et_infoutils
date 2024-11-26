@@ -1,18 +1,25 @@
 from .nodes.input import ETTextBoxNode, ETStringBoxNode, ETIntBoxNode
 from .nodes.info import ETTokenCountNode, ETShowDataNode, ETInspectTextNode
 
-et_nodes = [
-    ("Token Counter", ETTokenCountNode),
-    ("Show Data", ETShowDataNode),
-    ("Inspect Text", ETInspectTextNode),
+NODE_CLASS_MAPPINGS = {
+    "ETTextBoxNode": ETTextBoxNode,
+    "ETStringBoxNode": ETStringBoxNode,
+    "ETIntBoxNode": ETIntBoxNode,
 
-    ("Text Box", ETTextBoxNode),
-    ("String Box", ETStringBoxNode),
-    ("Int Box", ETIntBoxNode),
-]
+    "ETTokenCountNode": ETTokenCountNode,
+    "ETShowDataNode": ETShowDataNode,
+    "ETInspectTextNode": ETInspectTextNode,
+}
 
-NODE_CLASS_MAPPINGS = {cls.__name__: cls for display_name, cls in et_nodes}
-NODE_DISPLAY_NAME_MAPPINGS = {cls.__name__: display_name for display_name, cls in et_nodes}
+NODE_DISPLAY_NAME_MAPPINGS = {
+    "ETTokenCountNode": "Token Counter",
+    "ETShowDataNode": "Show Data",
+    "ETInspectTextNode": "Inspect Text",
+
+    "ETTextBoxNode": "Text Box",
+    "ETStringBoxNode": "String Box",
+    "ETIntBoxNode": "Int Box",
+}
 
 WEB_DIRECTORY = "./js"
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]
