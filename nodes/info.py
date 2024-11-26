@@ -9,6 +9,7 @@ class AnyType(str):
 
 anyType = AnyType("*")
 
+
 def updateTextWidget(node, widget, text):
     """
     Raises an event to update a widget's text.
@@ -40,23 +41,47 @@ class ETTokenCountNode:
 
     RETURN_TYPES = ("STRING", "INT",)
     RETURN_NAMES = ("text", "count")
+    OUTPUT_IS_LIST = (True, False,)
+    INPUT_IS_LIST = True
     OUTPUT_NODE = True
 
     CATEGORY = "exectails"
     FUNCTION = "process"
 
-    def process(self, text: str, clip: Any, tokens: str, unique_id: str):
+    def process(self, text, clip, tokens, unique_id):
+        texts = text
+        clip = clip[0]
+
+        tokens_min = 999999999
+        tokens_max = 0
+        tokens_avg = 0
+        tokens_out = ""
+
+        for text in texts:
+            token_count = self.get_token_count(text, clip)
+            tokens_min = min(tokens_min, token_count)
+            tokens_max = max(tokens_max, token_count)
+            tokens_avg += token_count
+
+        tokens_avg = int(tokens_avg / len(texts))
+
+        if tokens_min == tokens_max:
+            tokens_out = str(tokens_min)
+        else:
+            tokens_out = f"~{tokens_avg} ({tokens_min}-{tokens_max})"
+
+        updateTextWidget(unique_id, "tokens", tokens_out)
+        return {"ui": {"tokens": tokens_out}, "result": (texts, tokens_avg,)}
+
+    def get_token_count(self, text, clip):
         tokens = clip.tokenize(text)
-        tokenCount = 0
+        result = 0
 
         if 'g' in tokens and len(tokens['g']) > 0:
             real_tokens = [token for token in tokens['g'][0] if token[0] != 0]
-            tokenCount = len(real_tokens)
+            result = len(real_tokens)
 
-        tokenCountStr = str(tokenCount)
-
-        updateTextWidget(unique_id, "tokens", tokenCountStr)
-        return {"ui": {"tokens": tokenCountStr}, "result": (text, tokenCountStr,)}
+        return result
 
 
 class ETShowDataNode:
