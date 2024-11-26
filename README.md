@@ -4,6 +4,20 @@ ComfyUI - Info Utils
 Collection of custom nodes for ComfyUI that facilitate simpler information
 providing and gathering, such as Show Text and Token Counter nodes.
 
+Install
+-----------------------------------------------------------------------------
+
+**Option 1**
+
+Install via [ComfyUI-Manager][1].
+
+**Option 2**
+
+Clone the repository into your ComfyUI custom_nodes directory.
+```text
+git clone https://github.com/exectails/comfyui-et_infoutils
+```
+
 Nodes
 -----------------------------------------------------------------------------
 
@@ -32,3 +46,6 @@ and displays it in string format.
 
 A node primarily intended for debugging that takes a string input,
 displays it, and passes it through to its output for further processing.
+
+
+[1]: https://github.com/ltdrdata/ComfyUI-Manager
