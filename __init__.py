@@ -1,5 +1,6 @@
 from .nodes.input import ETTextBoxNode, ETStringBoxNode, ETIntBoxNode
 from .nodes.info import ETTokenCountNode, ETShowDataNode, ETInspectTextNode
+from .nodes.images import ETPresentImageNode
 
 NODE_CLASS_MAPPINGS = {
     "ETTextBoxNode": ETTextBoxNode,
@@ -9,6 +10,8 @@ NODE_CLASS_MAPPINGS = {
     "ETTokenCountNode": ETTokenCountNode,
     "ETShowDataNode": ETShowDataNode,
     "ETInspectTextNode": ETInspectTextNode,
+
+    "ETPresentImageNode": ETPresentImageNode,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -19,6 +22,8 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "ETTextBoxNode": "Text Box",
     "ETStringBoxNode": "String Box",
     "ETIntBoxNode": "Int Box",
+
+    "ETPresentImageNode": "Present Image",
 }
 
 WEB_DIRECTORY = "./js"

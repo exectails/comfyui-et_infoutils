@@ -47,5 +47,12 @@ and displays it in string format.
 A node primarily intended for debugging that takes a string input,
 displays it, and passes it through to its output for further processing.
 
+### Present Image
+
+A node that takes images and displays them, with a toggle for saving them
+at a configurable path. It essentially merges the Preview and Save Image
+nodes, while giving control over the save path and adding a simpler way
+to toggle saving on and off.
+
 
 [1]: https://github.com/ltdrdata/ComfyUI-Manager
