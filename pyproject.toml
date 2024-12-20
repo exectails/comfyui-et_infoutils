@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-et_infoutils"
+description = "Nodes that facilitate simpler information providing and gathering, such as Text Box, Show Data and Token Counter nodes."
+version = "1.0.0"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/exectails/comfyui-et_infoutils"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "comfyui-et_infoutils"
+Icon = ""
